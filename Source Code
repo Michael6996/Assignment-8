@@ -1,0 +1,88 @@
+import com.package1;
+import com.package2;
+import com.package3;
+import com.package4;
+
+
+// The abstract class: Games
+abstract class Games {
+    public static void main(String[] args) {
+        System.out.println("Gaming is fun yet complex");
+    }
+
+    // The abstract method
+    public abstract void playGame();
+}
+
+// The Interface: BattleFront
+interface BattleFront {
+    void startBattle();
+
+    default void endBattle() {
+        System.out.println("The battle ended.");
+    }
+}
+
+class SWBattleFront implements BattleFront {
+    static double staticDouble;
+    private String privateString; 
+    public int publicInt;
+    protected boolean protectedBoolean;
+    final float finalFloat;
+
+    public SWBattleFront(int publicInt, String privateString, boolean protectedBoolean, float finalFloat) {
+        this.publicInt = publicInt;
+        this.privateString = privateString;
+        this.protectedBoolean = protectedBoolean;
+        this.finalFloat = finalFloat;
+    }
+
+    // The method overloading
+    public void startBattle(int players) {
+        System.out.println("Starting battle with " + players + " players.");
+    }
+
+    public void startBattle(String map) {
+        System.out.println("Starting battle on map: " + map);
+    }
+
+    // The method overriding
+    @Override
+    public void startBattle() {
+        System.out.println("The battle started.");
+    }
+}
+
+// The abstract class: SWGOH
+abstract class SWGOH {
+    int publicInt;
+    private String privateString;
+    protected boolean protectedBoolean;
+    final float finalFloat;
+
+    // Constructors
+    public SWGOH(int publicInt, String privateString, boolean protectedBoolean, float finalFloat) {
+        this.publicInt = publicInt;
+        this.privateString = privateString;
+        this.protectedBoolean = protectedBoolean;
+        this.finalFloat = finalFloat;
+    }
+
+    // Abstract method
+    public abstract void playGame();
+}
+class Ark{
+    interface ark {
+        void startGame();
+    
+        default void endGame() {
+            System.out.println("The game has ended.");
+        }
+    }
+}
+class PvP{}
+class PvE{}
+class Halo{}
+class Nintendo{}
+class AngryBirds{}
+class Other{}
