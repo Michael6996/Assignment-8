@@ -1,88 +1,206 @@
-import com.package1;
-import com.package2;
-import com.package3;
-import com.package4;
 
 
-// The abstract class: Games
-abstract class Games {
-    public static void main(String[] args) {
-        System.out.println("Gaming is fun yet complex");
-    }
+public class Main{
+    //package animals;
+    //package reptiles;
+    //package mammals;
+    //package birds;
 
-    // The abstract method
-    public abstract void playGame();
+interface Vertebrate {
+    void vertabrate();
 }
 
-// The Interface: BattleFront
-interface BattleFront {
-    void startBattle();
 
-    default void endBattle() {
-        System.out.println("The battle ended.");
-    }
+interface Invertebrate {
+    void invertabrate();
 }
 
-class SWBattleFront implements BattleFront {
-    static double staticDouble;
-    private String privateString; 
-    public int publicInt;
-    protected boolean protectedBoolean;
-    final float finalFloat;
 
-    public SWBattleFront(int publicInt, String privateString, boolean protectedBoolean, float finalFloat) {
-        this.publicInt = publicInt;
-        this.privateString = privateString;
-        this.protectedBoolean = protectedBoolean;
-        this.finalFloat = finalFloat;
+abstract class Animal {
+    // Common properties for all animals
+    protected String sexualReproduction;
+    protected double length; // Random
+    protected String birthType;
+    protected int gestation; // In years
+    protected double weight; // Random
+    protected int offspring; // Random
+
+    // Constructor 1
+    public Animal(String sexualReproduction, int gestation, double length) {
+        this.sexualReproduction = sexualReproduction;
+        this.gestation = gestation;
+        this.length = length;
     }
 
-    // The method overloading
-    public void startBattle(int players) {
-        System.out.println("Starting battle with " + players + " players.");
+    // Constructor 2
+    public Animal(String birthType, double weight, int offspring) {
+        this.birthType = birthType;
+        this.weight = weight;
+        this.offspring = offspring;
     }
 
-    public void startBattle(String map) {
-        System.out.println("Starting battle on map: " + map);
+    // Abstract method to be overridden by subclasses
+    abstract void makeSound();
+}
+
+class Mammals extends Animal implements Vertebrate {
+    public Mammals() {
+        super("Sexual", 0.35, 9);  
     }
 
-    // The method overriding
     @Override
-    public void startBattle() {
-        System.out.println("The battle started.");
+    public void vertabrate() {
+        System.out.println("Mammals are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Mammals make various sounds.");
     }
 }
 
-// The abstract class: SWGOH
-abstract class SWGOH {
-    int publicInt;
-    private String privateString;
-    protected boolean protectedBoolean;
-    final float finalFloat;
 
-    // Constructors
-    public SWGOH(int publicInt, String privateString, boolean protectedBoolean, float finalFloat) {
-        this.publicInt = publicInt;
-        this.privateString = privateString;
-        this.protectedBoolean = protectedBoolean;
-        this.finalFloat = finalFloat;
+ class Birds extends Animal implements Vertebrate {
+    public Birds() {
+        super("Eggs", 0.35, 9); 
     }
 
-    // Abstract method
-    public abstract void playGame();
-}
-class Ark{
-    interface ark {
-        void startGame();
-    
-        default void endGame() {
-            System.out.println("The game has ended.");
-        }
+    @Override
+    public void vertabrate() {
+        System.out.println("Birds are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Birds chirp and sing.");
     }
 }
-class PvP{}
-class PvE{}
-class Halo{}
-class Nintendo{}
-class AngryBirds{}
-class Other{}
+
+
+
+@Override
+public String toString() {
+    return "Main []";
+}
+
+class Reptiles extends Animal implements Vertebrate {
+    public Reptiles() {
+        super("Sexual", 1, 6.5); 
+    }
+
+    @Override
+    public void vertabrate() {
+        System.out.println("Reptiles are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Reptiles make various sounds.");
+    }
+}
+class Fish extends Animal implements Vertebrate {
+    public Fish() {
+        super("Sexual", 1, 6.5); 
+       // super("Eggs", 0.35, 9); 
+    }
+
+    @Override
+    public void vertabrate() {
+        System.out.println("Fish are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Fish make various sounds.");
+    }
+
+  
+}
+class Amphibians extends Animal implements Vertebrate {
+    public Amphibians() {
+        super("Sexual", 1, 6.5); 
+    }
+
+    @Override
+    public void vertabrate() {
+        System.out.println("Amphibians are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Amphibians make various sounds.");
+    }
+}class Athropods extends Animal implements Invertebrate {
+    public Athropods() {
+        super("Sexual", 1, 6.5); 
+    }
+
+    @Override
+    public void invertabrate() {
+        System.out.println("Athropods are invertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Athropods make various sounds.");
+    }
+}class Porifera extends Animal implements Vertebrate {
+    public Porifera() {
+        super("Sexual", 1, 3.5); 
+    }
+
+    @Override
+    public void vertabrate() {
+        System.out.println("Porifera are vertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Porifera don't make various sounds.");
+    }
+}
+class Cnidaria extends Animal implements Invertebrate {
+    public Cnidaria() {
+        super("Sexual",1, 69.5); 
+    }
+
+    @Override
+    public void invertabrate() {
+        System.out.println("Cnidaria are invertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Cnidaria don't make various sounds.");
+    }
+}
+class Worms extends Animal implements Invertebrate {
+    public Worms() {
+        super("Live birth", 1, 0.5); 
+    }
+
+    @Override
+    public void invertabrate() {
+        System.out.println("Worms are invertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Worms don't make various sounds.");
+    }
+}class Mollusks extends Animal implements Invertebrate {
+    public Mollusks() {
+        super("Eggs", 1, 6.5); 
+    }
+
+    @Override
+    public void invertabrate() {
+        System.out.println("Mollusks are invertebrates.");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Mollusks make various sounds.");
+    }
+}
+}
